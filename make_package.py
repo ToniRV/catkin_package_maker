@@ -95,11 +95,11 @@ if __name__ == '__main__':
     project_path = os.path.join('./', project_name)
     ignore = ignore_patterns('*.pyc', '*git*', 'make_package.py', 'CATKIN_IGNORE')
     if not os.path.isdir(project_path):
-        print(GREEN + 'Creating new project at: ' + project_path + RESET)
+        print(GREEN + 'Creating new project: ' + project_name + RESET)
         copytree('./template', project_path, ignore=ignore)
     else:
         if check_and_confirm_overwrite(project_path):
-            print(GREEN + 'Overwritting project at: ' + project_path + RESET)
+            print(GREEN + 'Overwritting project: ' + project_name + RESET)
             rmtree(project_path)
             copytree('./template', project_path, ignore=ignore)
 
