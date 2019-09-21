@@ -4,7 +4,7 @@ import sys
 import os
 import re
 import argparse
-from shutil import copytree, ignore_patterns
+from shutil import copytree, rmtree, ignore_patterns
 
 # Group of Different functions for different styles
 if sys.platform.lower() == "win32":
@@ -12,6 +12,31 @@ if sys.platform.lower() == "win32":
 RED = '\033[31m'
 GREEN = '\033[32m'
 RESET = '\033[0m'
+
+# Python 2/3 compatibility
+try:
+    input = raw_input
+except NameError:
+    pass
+
+
+def prompt_val(msg="enter a value:"):
+    return input(msg + "\n")
+
+
+def confirm(msg="enter 'y' to confirm or any other key to cancel", key='y'):
+    if input(msg + "\n") != key:
+        return False
+    else:
+        return True
+
+
+def check_and_confirm_overwrite(file_path):
+    if os.path.isfile(file_path):
+        logger.warning(file_path + " exists, overwrite?")
+        return confirm("enter 'y' to overwrite or any other key to cancel")
+    else:
+        return True
 
 
 def configure_file(template_file, environment):  # noqa: D402
@@ -63,8 +88,10 @@ if __name__ == '__main__':
         print(GREEN + 'Creating new project at: ' + project_path + RESET)
         copytree('.', project_path, ignore=ignore_patterns('*.pyc', '*git*'))
     else:
-        ('.', project_path, ignore=ignore_patterns('*.pyc', '*git*'))
-
+        if check_and_confirm_overwrite(project_path):
+            rmtree(project_path)
+            print(GREEN + 'Creating new project at: ' + project_path + RESET)
+            copytree('.', project_path, ignore=ignore_patterns('*.pyc', '*git*'))
 
     project_properties = {'project_name': project_name}
 
