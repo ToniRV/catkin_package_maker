@@ -7,8 +7,8 @@ cur_dir=$(pwd)
 tmp_dir=$(mktemp -d /tmp/ros_node_template.XXXXXXXXX)
 
 # Clone repo
-echo "Cloning ros_node_template to tmp dir: $tmp_dir"
-git clone https://github.com/ToniRV/ros_node_template.git $tmp_dir
+#echo "Cloning ros_node_template to tmp dir: $tmp_dir"
+git clone --quiet https://github.com/ToniRV/ros_node_template.git $tmp_dir
 
 # Ask for project name
 read -p "Type project name: " project_name
