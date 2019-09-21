@@ -70,6 +70,15 @@ def configure_string(template, environment):
     return re.sub('\@[a-zA-Z0-9_]+\@', substitute, template)
 
 
+def write_file(filepath, contents):
+    dirname = os.path.dirname(filepath)
+    if not os.path.exists(dirname):
+        os.makedirs(dirname)
+    with open(filepath, 'w') as fh:
+        fh.write(contents.encode())
+        print('Created file %s' % os.path.relpath(filepath))
+
+
 def parser():
     basic_desc = "Build catkin project with specified project_name."
     parser = argparse.ArgumentParser(add_help=True, description="{}".format(basic_desc))
@@ -86,19 +95,21 @@ if __name__ == '__main__':
     project_path = os.path.join('./', project_name)
     if not os.path.isdir(project_path):
         print(GREEN + 'Creating new project at: ' + project_path + RESET)
-        copytree('.', project_path, ignore=ignore_patterns('*.pyc', '*git*'))
+        copytree('.', project_path, ignore=ignore_patterns('*.pyc', '*git*', 'make_package.py'))
     else:
         if check_and_confirm_overwrite(project_path):
+            print(GREEN + 'Overwritting project at: ' + project_path + RESET)
             rmtree(project_path)
-            print(GREEN + 'Creating new project at: ' + project_path + RESET)
-            copytree('.', project_path, ignore=ignore_patterns('*.pyc', '*git*'))
+            copytree('.', project_path, ignore=ignore_patterns('*.pyc', '*git*', 'make_package.py'))
 
     project_properties = {'project_name': project_name}
 
     #A. Rename package.xml
-    configure_file(os.path.join(project_path, 'package.xml'), project_properties)
+    package_xml_path = os.path.join(project_path, 'package.xml')
+    write_file(package_xml_path, configure_file(package_xml_path, project_properties))
     #B. Rename CMakeLists.txt
-    configure_file(os.path.join(project_path, 'CMakeLists.txt'), project_properties)
+    cmakelists_path = os.path.join(project_path, 'CMakeLists.txt')
+    write_file(cmakelists_path, configure_file(cmakelists_path, project_properties))
     #C. Rename include filesystem
     os.rename(os.path.join(project_path, 'include/project_name/main.h'),
               os.path.join(project_path, 'include/', project_name, project_name + '.h'))
