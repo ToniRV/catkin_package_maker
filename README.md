@@ -1,6 +1,6 @@
 # CATKIN PACKAGE MAKER
 
-Automatic generator of ROS packages with the minimal skeleton for development of a ROS node (c++). This is an extremely simplified and cleaner version of `catkin_create_pkg`.
+Automatic generator of ROS packages with the minimal skeleton for development of a ROS node (c++). This is an extremely simplified and cleaner version of `catkin_create_pkg`. It makes use of [catkin simple](https://github.com/catkin/catkin_simple) to simplify the verbose `CMakeLists.txt` and `package.xml` that `catkin_create_pkg` generates, and builds a package directory updated with the project name provided by the user.
 
 ## 1. Installation
 
