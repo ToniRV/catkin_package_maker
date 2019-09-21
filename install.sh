@@ -11,7 +11,7 @@ echo "Cloning ros_node_template to tmp dir: $tmp_dir"
 git clone https://github.com/ToniRV/ros_node_template.git $tmp_dir
 
 # Ask for project name
-read -p "Type project name: " project_name < /dev/tty.
+read -p "Type project name: " project_name.
 
 # Make catkin package
 cd $tmp_dir
