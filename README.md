@@ -61,7 +61,7 @@ make_catkin_pkg() {
 }
 ```
 
-After sourcing your `source ~/.bashrc`:
+After sourcing your bashrc `source ~/.bashrc`, you can start creating catkin packages in a split of a second:
 ```
 make_catkin_pkg
 ```
