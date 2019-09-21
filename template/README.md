@@ -1,7 +1,6 @@
-# PLY ROS PUBLISHER
+# Template ROS package
 
-ROS publisher of PLY files as a Mesh or as a Pointcloud, given input filename via rosparams or via rosservice call
-
+This is a template ROS package
 
 # 1. Installation
 
