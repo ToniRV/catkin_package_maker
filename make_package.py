@@ -128,7 +128,11 @@ if __name__ == '__main__':
     #F. Update launch file with project_name
     write_file(launch_path, configure_file(launch_path, project_properties))
 
-    #G. Update readme with project_name
+    #G. Rename install filesystem with project_name
+    os.rename(os.path.join(project_path, 'install/template.rosinstall'),
+              os.path.join(project_path, 'install/', project_name + '.rosinstall'))
+
+    #H. Update readme with project_name
     readme_path = os.path.join(project_path, 'README.md')
     write_file(readme_path, configure_file(readme_path, project_properties))
 
