@@ -1,6 +1,6 @@
-# PLY ROS PUBLISHER
+# @project_name@
 
-ROS publisher of PLY files as a Mesh or as a Pointcloud, given input filename via rosparams or via rosservice call
+ROS node for @project_name@
 
 
 # 1. Installation
