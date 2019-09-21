@@ -121,7 +121,14 @@ if __name__ == '__main__':
     new_main_path = os.path.join(project_path, 'src/', project_name + '.cpp')
     write_file(new_main_path, configure_file(main_path, project_properties))
 
-    #E. Update readme with project_name
+    #E. Rename launch filesystem with project_name
+    launch_path = os.path.join(project_path, 'launch/', project_name + '.launch')
+    os.rename(os.path.join(project_path, 'launch/project_name.launch'), launch_path)
+
+    #F. Update launch file with project_name
+    write_file(launch_path, configure_file(launch_path, project_properties))
+
+    #G. Update readme with project_name
     readme_path = os.path.join(project_path, 'README.md')
     write_file(readme_path, configure_file(readme_path, project_properties))
 

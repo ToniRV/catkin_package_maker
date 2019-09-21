@@ -47,5 +47,8 @@ rosrun @project_name@ @project_name@
 ```
 
 ## roslaunch
+```
+roslaunch @project_name@ @project_name@
+```
 
 ## rosservice
