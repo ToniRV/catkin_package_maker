@@ -2,7 +2,6 @@
 
 ROS node for @project_name@
 
-
 # 1. Installation
 
 ## A. Prerequisities
