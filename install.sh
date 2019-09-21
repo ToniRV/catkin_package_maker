@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-# Ask for project name
-echo "Type project name:"
-read project_name
-
 # Store current directory
 cur_dir=$(pwd)
 
@@ -14,9 +10,12 @@ tmp_dir=$(mktemp -d /tmp/ros_node_template.XXXXXXXXX)
 echo "Cloning ros_node_template to tmp dir: $tmp_dir"
 git clone https://github.com/ToniRV/ros_node_template.git $tmp_dir
 
+# Ask for project name
+read -p "Type project name: " project_name < /dev/tty.
+
 # Make catkin package
 cd $tmp_dir
-make build project_name="$project_name"
+make build project_name=$project_name
 
 # Copy catkin package to wherever this script was executed
 cp -r $tmp_dir/$project_name $cur_dir
