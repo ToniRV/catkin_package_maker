@@ -4,15 +4,36 @@ Automatic generator of ROS packages with the minimal skeleton for development of
 
 ## 1. Installation
 
-None
+## A. Prerequisities
+
+- [ROS](https://www.ros.org/install/)
+- [catkin_simple](https://github.com/catkin/catkin_simple)
+
+## B. Installation
+
+As usual, setup your catkin workspace if you don't have one:
+
+```bash
+# Setup catkin workspace
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws/
+catkin init
+
+# Clone catkin simple
+git clone https://github.com/catkin/catkin_simple
+
+# Add workspace to bashrc.
+echo 'source ~/catkin_ws/devel/setup.bash' >> ~/.bashrc
+```
 
 ## 2. Usage
 
 **Tired of creating catkin packages from scratch?**
 
-Just run: 
+Just run, in your catkin workspace:
 
 ```
+cd ~/catkin_ws/src
 bash -c "$(curl -sLf https://raw.githubusercontent.com/ToniRV/catkin_package_maker/master/make_catkin_pkg.sh)"
 ```
 
@@ -24,6 +45,16 @@ test
 ```
 
 Done! Fresh new catkin simple package.
+
+Now, compile the code:
+
+```bash
+# Compile code
+catkin build
+
+# Refresh workspace
+source ~/.bashrc
+```
 
 ## 3. What's going on?
 
@@ -53,7 +84,7 @@ You should see something like:
 [ INFO] [1569099086.150568624]: Hello World
 ```
 
-If the command above is too long, just create a bash **function** in your `~/.bashrc`: 
+If the command above is too long, just create a bash **function** in your `~/.bashrc`:
 
 ```bash
 make_catkin_pkg() {
