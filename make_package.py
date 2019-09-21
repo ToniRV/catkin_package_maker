@@ -115,10 +115,9 @@ if __name__ == '__main__':
     os.rename(os.path.join(project_path, 'include/project_name/main.h'),
               os.path.join(project_path, 'include/', project_name, project_name + '.h'))
     #D. Rename src internals
-    configure_file(os.path.join(project_path, 'src/main.cpp'), project_properties)
-    #E. Rename src filesystem
-    os.rename(os.path.join(project_path, 'src/main.cpp'),
-              os.path.join(project_path, 'src/', project_name + '.cpp'))
+    main_path = os.path.join(project_path, 'src/main.cpp')
+    new_main_path = os.path.join(project_path, 'src/', project_name + '.cpp')
+    write_file(new_main_path, configure_file(main_path, project_properties))
 
     # Finally, rename package path
     os.rename(project_path, './' + project_name)
