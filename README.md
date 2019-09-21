@@ -18,12 +18,14 @@ As usual, setup your catkin workspace if you don't have one:
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/
 catkin init
+```
 
+In your catkin workspace, clone catkin simple:
+
+```
 # Clone catkin simple
+cd src
 git clone https://github.com/catkin/catkin_simple
-
-# Add workspace to bashrc.
-echo 'source ~/catkin_ws/devel/setup.bash' >> ~/.bashrc
 ```
 
 ## 2. Usage
