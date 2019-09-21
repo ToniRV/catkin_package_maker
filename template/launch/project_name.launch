@@ -1,0 +1,8 @@
+<launch>
+  <arg name="argument" default="0"/>
+
+  <node name="@project_name@" pkg="@project_name@" type="@project_name@" output="screen" args="">
+    <remap from="topic" to="another_topic"/>
+    <param name="parameter" value="0"/>
+  </node>
+</launch>
