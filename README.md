@@ -41,23 +41,43 @@ source ~/.bashrc
 
 # 2. Usage
 
-## Build the catkin project
+## Build a default `project_name` catkin package
 
 Easiest way:
 ```
-make build
+make 
 ```
 
 It will build a template catkin package named `project_name`:
 
-You can use rosrun to actualy run it:
+Compile it:
+```bash
+# Compile code
+catkin build project_name
+
+# Refresh workspace
+source ~/.bashrc
+```
+
+You can use rosrun to actually run it:
 ```
 rosrun project_name project_name
 ```
 
+## Build a custom named `PROJECT_NAME` catkin package
+
 Alternatively, build the catkin package with a name of your choice `PROJECT_NAME`:
 ```
-python make_package.py --project_name PROJECT_NAME
+make build project_name=PROJECT_NAME
+```
+
+Compile it:
+```bash
+# Compile code
+catkin build PROJECT_NAME
+
+# Refresh workspace
+source ~/.bashrc
 ```
 
 Then, run it:

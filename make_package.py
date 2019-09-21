@@ -112,7 +112,9 @@ if __name__ == '__main__':
     cmakelists_path = os.path.join(project_path, 'CMakeLists.txt')
     write_file(cmakelists_path, configure_file(cmakelists_path, project_properties))
     #C. Rename include filesystem
-    os.rename(os.path.join(project_path, 'include/project_name/main.h'),
+    os.rename(os.path.join(project_path, 'include/project_name'),
+              os.path.join(project_path, 'include/', project_name))
+    os.rename(os.path.join(project_path, 'include/', project_name, 'main.h'),
               os.path.join(project_path, 'include/', project_name, project_name + '.h'))
     #D. Rename src internals
     main_path = os.path.join(project_path, 'src/main.cpp')
