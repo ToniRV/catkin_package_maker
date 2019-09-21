@@ -120,6 +120,7 @@ if __name__ == '__main__':
     main_path = os.path.join(project_path, 'src/main.cpp')
     new_main_path = os.path.join(project_path, 'src/', project_name + '.cpp')
     write_file(new_main_path, configure_file(main_path, project_properties))
+    os.remove(main_path)
 
     #E. Rename launch filesystem with project_name
     launch_path = os.path.join(project_path, 'launch/', project_name + '.launch')
