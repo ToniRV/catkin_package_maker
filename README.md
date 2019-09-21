@@ -57,4 +57,11 @@ make_catkin_pkg() {
 }
 ```
 
-More info [here](http://www.mit.edu/~arosinol/2019/09/21/ROS_Catkin_Package_Maker/)
+After sourcing your `source ~/.bashrc`:
+```
+make_catkin_pkg
+```
+
+Enjoy!
+
+More info [here](http://www.mit.edu/~arosinol/2019/09/21/ROS_Catkin_Package_Maker/).
