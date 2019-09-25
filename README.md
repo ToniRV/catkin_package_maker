@@ -23,7 +23,7 @@ catkin init
 
 In your catkin workspace, clone catkin simple:
 
-```
+```bash
 # Clone catkin simple
 cd src
 git clone https://github.com/catkin/catkin_simple
@@ -35,7 +35,7 @@ git clone https://github.com/catkin/catkin_simple
 
 Just run, in your catkin workspace:
 
-```
+```bash
 cd ~/catkin_ws/src
 bash -c "$(curl -sLf https://raw.githubusercontent.com/ToniRV/catkin_package_maker/master/make_catkin_pkg.sh)"
 ```
@@ -60,41 +60,7 @@ source ~/catkin_ws/src/devel/setup.sh
 ```
 
 Run to test that it worked:
-```
-rosrun test test
-```
-
-If the command above is too long for you, just create a bash function: add in your `~/.bashrc`:
-
-```
-make_catkin_pkg() {
-  bash -c "$(curl -sLf https://raw.githubusercontent.com/ToniRV/catkin_package_maker/master/make_catkin_pkg.sh)"
-}
-```
-
-Now repeat the test above by typing `make_catkin_pkg` instead of the long command.
-Make sure you re-source your `.bashrc`: `source ~/.bashrc` and your catkin workspace `source ~/catkin_ws/devel/setup.sh`.
-
-## 3. What's going on?
-
-This will generate a fresh catkin simple package, including filesystem, and even README.md, all updated with the name of your project.
-
 ```bash
-Creating new project at: ./test
-Created file test/package.xml
-Created file test/CMakeLists.txt
-Created file test/src/test.cpp
-Created file test/launch/test.launch
-Created file test/README.md
-```
-
-> The actual template for the catkin package is in [here](./template). Where all strings between @ will be updated according to user input.
-
-If you have executed this inside a catkin workspace, just build and run:
-
-```
-catkin build
-# Source your catkin workspace before!
 rosrun test test
 ```
 
@@ -117,5 +83,29 @@ make_catkin_pkg
 ```
 
 Enjoy!
+
+## 3. What's going on?
+
+This will generate a fresh catkin simple package, including filesystem, and even README.md, all updated with the name of your project.
+
+```bash
+Creating new project at: ./test
+Created file test/package.xml
+Created file test/CMakeLists.txt
+Created file test/src/test.cpp
+Created file test/launch/test.launch
+Created file test/README.md
+```
+
+> The actual template for the catkin package is in [here](./template). Where all strings between @ will be updated according to user input.
+
+If you have executed this inside a catkin workspace, just build and run:
+
+```bash
+catkin build
+
+# Source your catkin workspace before!
+rosrun test test
+```
 
 More info [here](http://www.mit.edu/~arosinol/2019/09/21/ROS_Catkin_Package_Maker/).
