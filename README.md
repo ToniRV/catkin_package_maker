@@ -9,7 +9,6 @@ It makes use of [catkin simple](https://github.com/catkin/catkin_simple) to simp
 ## A. Prerequisities
 
 - [ROS](https://www.ros.org/install/)
-- [catkin_simple](https://github.com/catkin/catkin_simple)
 
 ## B. Installation
 
