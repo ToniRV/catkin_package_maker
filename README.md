@@ -52,10 +52,15 @@ Now, compile the code:
 
 ```bash
 # Compile code
-catkin build
+catkin build test
 
 # Refresh workspace
-source ~/.bashrc
+source ~/catkin_ws/src/devel/setup.sh
+```
+
+Run to test that it worked:
+```
+rosrun test test
 ```
 
 ## 3. What's going on?
