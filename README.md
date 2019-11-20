@@ -105,6 +105,7 @@ If you have executed this inside a catkin workspace, just build and run:
 catkin build
 
 # Source your catkin workspace before!
+# Change `test` for your actual package name
 rosrun test test
 ```
 

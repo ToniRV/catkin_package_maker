@@ -10,4 +10,6 @@ cs_add_executable(${PROJECT_NAME}
 
 cs_install()
 
+cs_install_scripts(scripts/@project_name@_script)
+
 cs_export()
