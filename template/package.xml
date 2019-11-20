@@ -11,5 +11,6 @@
   <buildtool_depend>catkin_simple</buildtool_depend>
 
   <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
 
 </package>

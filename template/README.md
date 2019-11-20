@@ -42,12 +42,19 @@ source ~/.bashrc
 # 2. Usage
 
 ## rosrun
-```
+
+Cpp:
+```bash
 rosrun @project_name@ @project_name@
 ```
 
-## roslaunch
+Python:
+```bash
+rosrun @project_name@ @project_name@_script
 ```
+
+## roslaunch
+```bash
 roslaunch @project_name@ @project_name@
 ```
 

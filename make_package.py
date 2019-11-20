@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#node fileso!/usr/bin/env python
 
 import sys
 import os
@@ -108,14 +108,17 @@ if __name__ == '__main__':
     #A. Rename package.xml
     package_xml_path = os.path.join(project_path, 'package.xml')
     write_file(package_xml_path, configure_file(package_xml_path, project_properties))
+
     #B. Rename CMakeLists.txt
     cmakelists_path = os.path.join(project_path, 'CMakeLists.txt')
     write_file(cmakelists_path, configure_file(cmakelists_path, project_properties))
+
     #C. Rename include filesystem
     os.rename(os.path.join(project_path, 'include/project_name'),
               os.path.join(project_path, 'include/', project_name))
     os.rename(os.path.join(project_path, 'include/', project_name, 'main.h'),
               os.path.join(project_path, 'include/', project_name, project_name + '.h'))
+
     #D. Rename src internals
     main_path = os.path.join(project_path, 'src/main.cpp')
     new_main_path = os.path.join(project_path, 'src/', project_name + '.cpp')
@@ -136,6 +139,24 @@ if __name__ == '__main__':
     #H. Update readme with project_name
     readme_path = os.path.join(project_path, 'README.md')
     write_file(readme_path, configure_file(readme_path, project_properties))
+
+    # Python related renamings
+    #A. Update setup.py with project_name
+    setup_py_path = os.path.join(project_path, 'setup.py')
+    write_file(setup_py_path, configure_file(setup_py_path, project_properties))
+
+    #B. Rename src internals
+    os.rename(os.path.join(project_path, 'src/project_name'),
+              os.path.join(project_path, 'src/', project_name))
+
+    #C. Rename scripts internals
+    project_name_script_path = os.path.join(project_path, 'scripts/project_name')
+    write_file(project_name_script_path,
+               configure_file(project_name_script_path, project_properties))
+    ## We add `_script` below to make sure the name does not collide with the cpp node name.
+    ## otw calling `rosrun project_name project_name` would be ambiguous (python or cpp?).
+    os.rename(os.path.join(project_path, 'scripts/project_name'),
+              os.path.join(project_path, 'scripts/', project_name + '_script'))
 
     # Finally, rename package path
     os.rename(project_path, './' + project_name)

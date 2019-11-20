@@ -44,7 +44,7 @@ And enter the name of your catkin package:
 
 ```bash
 Type project name:
-test
+foo
 ```
 
 Done! Fresh new catkin simple package.
@@ -53,7 +53,7 @@ Now, compile the code:
 
 ```bash
 # Compile code
-catkin build test
+catkin build foo
 
 # Refresh workspace
 source ~/catkin_ws/src/devel/setup.sh
@@ -61,7 +61,7 @@ source ~/catkin_ws/src/devel/setup.sh
 
 Run to test that it worked:
 ```bash
-rosrun test test
+rosrun foo foo
 ```
 
 You should see something like:
@@ -89,12 +89,12 @@ Enjoy!
 This will generate a fresh catkin simple package, including filesystem, and even README.md, all updated with the name of your project.
 
 ```bash
-Creating new project at: ./test
-Created file test/package.xml
-Created file test/CMakeLists.txt
-Created file test/src/test.cpp
-Created file test/launch/test.launch
-Created file test/README.md
+Creating new project at: ./foo
+Created file foo/package.xml
+Created file foo/CMakeLists.txt
+Created file foo/src/foo.cpp
+Created file foo/launch/foo.launch
+Created file foo/README.md
 ```
 
 > The actual template for the catkin package is in [here](./template). Where all strings between @ will be updated according to user input.
@@ -105,7 +105,8 @@ If you have executed this inside a catkin workspace, just build and run:
 catkin build
 
 # Source your catkin workspace before!
-rosrun test test
+# Change `foo` for your actual package name
+rosrun foo foo
 ```
 
 More info [here](http://www.mit.edu/~arosinol/2019/09/21/ROS_Catkin_Package_Maker/).
