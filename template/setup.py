@@ -7,7 +7,7 @@ setup_args = generate_distutils_setup(
      name='@project_name@',
      version='0.0.0',
      description='TODO',
-     packages=['@project_name'],
+     packages=['@project_name@'],
      package_dir={'': 'src'}
 )
 

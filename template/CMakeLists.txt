@@ -3,6 +3,8 @@ project(@project_name@)
 
 find_package(catkin_simple REQUIRED)
 
+catkin_python_setup()
+
 catkin_simple()
 
 cs_add_executable(${PROJECT_NAME}
