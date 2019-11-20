@@ -156,7 +156,7 @@ if __name__ == '__main__':
     ## We add `_script` below to make sure the name does not collide with the cpp node name.
     ## otw calling `rosrun project_name project_name` would be ambiguous (python or cpp?).
     os.rename(os.path.join(project_path, 'scripts/project_name'),
-              os.path.join(project_path, 'scripts/', project_name, '_script'))
+              os.path.join(project_path, 'scripts/', project_name + '_script'))
 
     # Finally, rename package path
     os.rename(project_path, './' + project_name)
